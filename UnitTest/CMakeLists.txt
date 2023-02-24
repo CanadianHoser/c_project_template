@@ -12,7 +12,7 @@ else()
     message(STATUS "Found CppUTest version ${CPPUTEST_VERSION}")
 endif()
 
-add_compile_options(-std=c++17 -Wall -Werror)
+add_compile_options(-Wall -Werror)
 
 # (2) Our unit tests sources
 set(TEST_APP_NAME ${APP_NAME}_tests)
@@ -26,6 +26,10 @@ include_directories(${CPPUTEST_INCLUDE_DIRS} ../src/)
 
 # (4) Build the unit tests objects and link then with the app library
 add_executable(${TEST_APP_NAME} ${TEST_SOURCES})
+set_target_properties(${TEST_APP_NAME} PROPERTIES
+	CXX_STANDARD 17
+    CXX_EXTENSIONS OFF
+)
 set_target_properties(${TEST_APP_NAME} PROPERTIES LINKER_LANGUAGE CXX)
 target_link_libraries(${TEST_APP_NAME} ${APP_LIB_NAME} ${CPPUTEST_LDFLAGS})
 

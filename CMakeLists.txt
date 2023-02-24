@@ -7,7 +7,7 @@ project(JobySimulation
   LANGUAGES C CXX
 )
 
-add_compile_options(-std=c17 -Wall -Werror)
+add_compile_options(-Wall -Werror)
 
 set(APP_NAME my_program)
 set(APP_LIB_NAME my_program_lib)
