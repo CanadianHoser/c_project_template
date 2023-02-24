@@ -14,8 +14,8 @@ set(APP_LIB_NAME my_program_lib)
 
 option(COMPILE_UT_HARNESS "Compile CppUTest" OFF)
 if (COMPILE_UT_HARNESS)
+  set(ENV{CPPUTEST_HOME} ${CMAKE_SOURCE_DIR}/cpputest)
   add_subdirectory(cpputest)
-  set(CPPUTEST_HOME cpputest)
 endif(COMPILE_UT_HARNESS)
 
 option(COMPILE_TESTS "Compile the tests" ON)
